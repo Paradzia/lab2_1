@@ -13,12 +13,14 @@ public class TestV1 {
     int key = 3;
     int[] seq1 = {1};
     int[] seq2 = {1, 2, 3, 4, 5};
-
    /* @Before
     public void setup(){
         key = 3;
         seq1 = new int[1];
     }*/
+
+
+   // TESTY V1
 
     @Test public void oneElementArrayHasSearchResult() throws Exception {
         result = BinarySearch.search(1, seq1);
@@ -49,4 +51,13 @@ public class TestV1 {
         result = BinarySearch.search(20, seq2);
         assertFalse(result.isFound());
     }
+
+    //TESTY V2
+
+    int[] seq0 = new int[0];
+    @Test(expected = IllegalArgumentException.class) public void illegalArgumentGiven() throws Exception{
+        BinarySearch.search(3, seq0);
+    }
+
+    
 }
