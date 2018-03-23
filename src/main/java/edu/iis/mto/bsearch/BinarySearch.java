@@ -3,6 +3,8 @@
  */
 package edu.iis.mto.bsearch;
 
+import java.util.Arrays;
+
 /**
  * Utility Class dla wyszukiwania binarnego
  * 
@@ -22,6 +24,9 @@ public class BinarySearch {
 	 */
 	public static SearchResult search(int key, int[] seq) {
 		if(seq.length == 0) throw new IllegalArgumentException();
+		int[] tmp = seq;
+		Arrays.sort(tmp);
+		if(Arrays.equals(seq, tmp)) throw new IllegalArgumentException();
 		int start = 0;
 		int end = seq.length - 1;
 		int center;
