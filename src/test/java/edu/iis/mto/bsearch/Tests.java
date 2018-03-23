@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-public class TestV1 {
+public class Tests {
 
     SearchResult result = new SearchResult();
 
@@ -38,20 +38,20 @@ public class TestV1 {
 
     @Test public void multiElementArrayHasSearchResultAtLastPosition() throws Exception {
         result = BinarySearch.search(5, seqMulti);
-        assertTrue(result.isFound() && result.getPosition() == seqMulti.length);
+        assertThat(seqMulti.length, is(result.getPosition()));
 
     }
 
     @Test public void multiElementArrayHasSearchResultAtMiddlePosition() throws Exception {
         result = BinarySearch.search(3, seqMulti);
-        assertTrue(result.isFound() && result.getPosition() == seqMulti.length/2+1);
+        assertThat(seqMulti.length/2+1, is(result.getPosition()));
     }
 
     @Test public void multiElementArrayHasNotSearchResult() throws Exception {
         result = BinarySearch.search(20, seqMulti);
-        assertFalse(result.isFound());
+        assertThat(false, is(result.isFound()));
     }
-    
+
 
 
 }
