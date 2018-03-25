@@ -24,9 +24,10 @@ public class BinarySearch {
 	 */
 	public static SearchResult search(int key, int[] seq) {
 		if(seq.length == 0) throw new IllegalArgumentException();
-		int[] tmp = seq;
+		int[] tmp = seq.clone();
 		Arrays.sort(tmp);
-		if(Arrays.equals(seq, tmp)) throw new IllegalArgumentException();
+
+		if(! Arrays.equals(seq, tmp))throw new IllegalArgumentException();
 		int start = 0;
 		int end = seq.length - 1;
 		int center;
